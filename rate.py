@@ -136,7 +136,7 @@ def create_models_charts (models_rating: tuple) -> None:
 # for metric, result in best_models.items():
 #     print(f"Метрика {metric} - лучший результат у {result[0]} = {result[1]}")
 ## \endcode
-## \return None
+## \return Словарь dict() с тремя лучшими моделями по метрикам mse, mae, r2_score
 def get_best_models (models_rating: tuple) -> dict:
     best_models = {
         "mse": list,
@@ -150,3 +150,52 @@ def get_best_models (models_rating: tuple) -> dict:
     best_models["r2_score"] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]
 
     return best_models
+
+## \brief Функция возврата n-лучших моделей по метрике
+## \authors ivan-dev-lab-home
+## \version 1.0.0
+## \date 16.08.2023
+## \param[in] models_rating Рейтинг моделей, полученный из функции rate_models
+## \param[in] top_by Метрика, на основании которой будет составлять топ n лучших моделей 
+## \param[in] top_models_num Количество моделей, которые зайдут в топ
+## \brief Объяснение кода
+## \details В приведенных ниже конструкциях выполняется добавления названия модели с наилучшим результатом. В конструкции выполняется поиск названия модели в массиве names по индексу наилучшего результата в массиве с соотвествующими метрииками
+## \code
+# models_top.append(names[mse_scores.index(min(mse_scores))])
+# models_top.append(names[mae_scores.index(min(mae_scores))])
+# models_top.append(names[r2_scores.index(max(r2_scores))])
+## \endcode
+## \details В приведенных ниже конструкциях выполняется удаление наилучшего результата из массива с метриками ( в конце - из массива с названиями моделей ) для того, чтобы название модели в итоговом массиве models_top не повторялось
+## \code
+# mse_scores.pop(mse_scores.index(min(mse_scores)))
+# mae_scores.pop(mae_scores.index(min(mae_scores)))
+# r2_scores.pop(r2_scores.index(max(r2_scores)))
+# names.remove(models_top[len(models_top)-1])
+## \endcode
+## \return Список list() с n-лучшими моделями по определенному признаку
+def get_models_top (models_rating: tuple, top_by: str, top_models_num: int=3) -> list:
+    models_top = []
+    names, mse_scores, mae_scores, r2_scores = models_rating
+    
+    if top_models_num <= len(names):
+        if top_by in ["mse", "mae", "r2_score"]:
+            for _ in range(top_models_num):
+                if top_by == "mse":
+                    models_top.append(names[mse_scores.index(min(mse_scores))])
+                    mse_scores.pop(mse_scores.index(min(mse_scores)))
+                if top_by == "mae":
+                    models_top.append(names[mae_scores.index(min(mae_scores))])
+                    mae_scores.pop(mae_scores.index(min(mae_scores)))
+                if top_by == "r2_score":
+                    models_top.append(names[r2_scores.index(max(r2_scores))])
+                    r2_scores.pop(r2_scores.index(max(r2_scores)))
+
+                names.remove(models_top[len(models_top)-1])
+        else:
+            print(f'Введенный параметр [top_by={top_by}] является некорректным т.к не принадлежит последовательности ["mse", "mae", "r2_score"])')
+            return 0
+    else:
+        print(f'Введенный параметр [top_models_num={top_models_num}] является некорректным т.к является больше, чем количество нейросетей, участвующих в рейтинге')
+        return 0
+
+    return models_top
