@@ -35,6 +35,13 @@ Y = response_tuple[1]
 ## \param[in] X Признаки входных данных 
 ## \param[in] Y Целевые переменные входных данных 
 ## \param[in] verbose Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True
+## \details В приведенной ниже конструкции выполняется сохранение моделей. Это нужно для того, чтобы при итоговой работе в файле main.py моделям не нужно было заново обучаться - достаточно просто загрузить их из файла
+## \code
+# joblib.dump(model, f"models/{name}.pkl")
+## \endcode
+## \code
+# joblib.dump(model, f"models/MyModelRegression.pkl")
+## \endcode
 ## \return Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score )
 def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
     model = create_model(input_shape=len(X.columns))
@@ -132,7 +139,11 @@ def create_models_charts (models_rating: tuple) -> None:
 ## \details Далее в массиве names происходит поиск имени модели по индексу минимальной ( в случае r2_scores - максимальной) метрики в массиве ( mse_scores, mae_scores, r2_scores)
 ## \code
 # best_models["mse"] = [names[mse_scores.index(min(mse_scores))], min(mse_scores)]
+## \endcode
+## \code
 # best_models["mae"] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]
+## \endcode
+## \code
 # best_models["r2_score"] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]
 ## \endcode
 ## \brief Пример использования:
@@ -168,14 +179,24 @@ def get_best_models (models_rating: tuple) -> dict:
 ## \details В приведенных ниже конструкциях выполняется добавления названия модели с наилучшим результатом. В конструкции выполняется поиск названия модели в массиве names по индексу наилучшего результата в массиве с соотвествующими метрииками
 ## \code
 # models_top.append(names[mse_scores.index(min(mse_scores))])
+## \endcode
+## \code
 # models_top.append(names[mae_scores.index(min(mae_scores))])
+## \endcode
+## \code
 # models_top.append(names[r2_scores.index(max(r2_scores))])
 ## \endcode
 ## \details В приведенных ниже конструкциях выполняется удаление наилучшего результата из массива с метриками ( в конце - из массива с названиями моделей ) для того, чтобы название модели в итоговом массиве models_top не повторялось
 ## \code
 # mse_scores.pop(mse_scores.index(min(mse_scores)))
+## \endcode
+## \code
 # mae_scores.pop(mae_scores.index(min(mae_scores)))
+## \endcode
+## \code
 # r2_scores.pop(r2_scores.index(max(r2_scores)))
+## \endcode
+## \code
 # names.remove(models_top[len(models_top)-1])
 ## \endcode
 ## \details В приведенной ниже конструкции выполняется удаление файлов с моделями, кроме тех, которые были лучшими ( названия которых есть в массиве models_top )
