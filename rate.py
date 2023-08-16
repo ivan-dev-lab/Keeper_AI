@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
+import joblib
 from preprocess import preprocess
 from create_model import create_model
 
@@ -28,7 +29,7 @@ Y = response_tuple[1]
 
 ## \brief Функция-оценщик моделей
 ## \authors ivan-dev-lab
-## \version 1.0.0
+## \version 1.1.0
 ## \date 05.08.2023
 ## \param[in] X Признаки входных данных 
 ## \param[in] Y Целевые переменные входных данных 
@@ -54,6 +55,8 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
     for name, Model in models.items():
 
         model = Model().fit(x_train, y_train)
+        joblib.dump(model, f"models/{name}.pkl")
+
         y_pred = model.predict(x_test)
 
         mse = mean_squared_error(y_test, y_pred)
@@ -70,6 +73,8 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
 
     model = create_model(input_shape=X.shape[1])
     model.fit(x_train, y_train, batch_size=64, epochs=30, verbose=0)
+    joblib.dump(model, f"models/MyModelRegression.pkl")
+
     y_pred = model.predict(x_test)
     
     mse = mean_squared_error(y_test, y_pred)
