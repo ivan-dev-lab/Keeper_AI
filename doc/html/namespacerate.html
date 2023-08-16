@@ -135,7 +135,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00103">103</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00110">110</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
@@ -167,15 +167,15 @@ Variables</h2></td></tr>
 </dl>
 <p>Программа ищет минимальную метрику из каждого массива ( mse_scores, mae_scores, r2_scores)</p>
 <p>Далее в массиве names происходит поиск имени модели по индексу минимальной ( в случае r2_scores - максимальной) метрики в массиве ( mse_scores, mae_scores, r2_scores) </p><div class="fragment"><div class="line">best_models[<span class="stringliteral">&quot;mse&quot;</span>] = [names[mse_scores.index(min(mse_scores))], min(mse_scores)]</div>
-<div class="line">best_models[<span class="stringliteral">&quot;mae&quot;</span>] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]</div>
-<div class="line">best_models[<span class="stringliteral">&quot;r2_score&quot;</span>] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">best_models[<span class="stringliteral">&quot;mae&quot;</span>] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">best_models[<span class="stringliteral">&quot;r2_score&quot;</span>] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]</div>
 </div><!-- fragment --><p>Пример использования: </p><div class="fragment"><div class="line">models_rating = rate_models(X, Y, verbose=<span class="keyword">False</span>)</div>
 <div class="line">best_models = get_best_models(models_rating)</div>
 <div class="line"><span class="keywordflow">for</span> metric, result <span class="keywordflow">in</span> best_models.items():</div>
 <div class="line">    print(f<span class="stringliteral">&quot;Метрика {metric} - лучший результат у {result[0]} = {result[1]}&quot;</span>)</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>Словарь dict() с тремя лучшими моделями по метрикам mse, mae, r2_score </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00146">146</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00157">157</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
@@ -225,18 +225,18 @@ Variables</h2></td></tr>
 </dl>
 <p>Объяснение кода</p>
 <p>В приведенных ниже конструкциях выполняется добавления названия модели с наилучшим результатом. В конструкции выполняется поиск названия модели в массиве names по индексу наилучшего результата в массиве с соотвествующими метрииками </p><div class="fragment"><div class="line">models_top.append(names[mse_scores.index(min(mse_scores))])</div>
-<div class="line">models_top.append(names[mae_scores.index(min(mae_scores))])</div>
-<div class="line">models_top.append(names[r2_scores.index(max(r2_scores))])</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">models_top.append(names[mae_scores.index(min(mae_scores))])</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">models_top.append(names[r2_scores.index(max(r2_scores))])</div>
 </div><!-- fragment --><p>В приведенных ниже конструкциях выполняется удаление наилучшего результата из массива с метриками ( в конце - из массива с названиями моделей ) для того, чтобы название модели в итоговом массиве models_top не повторялось </p><div class="fragment"><div class="line">mse_scores.pop(mse_scores.index(min(mse_scores)))</div>
-<div class="line">mae_scores.pop(mae_scores.index(min(mae_scores)))</div>
-<div class="line">r2_scores.pop(r2_scores.index(max(r2_scores)))</div>
-<div class="line">names.remove(models_top[len(models_top)-1])</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">mae_scores.pop(mae_scores.index(min(mae_scores)))</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">r2_scores.pop(r2_scores.index(max(r2_scores)))</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">names.remove(models_top[len(models_top)-1])</div>
 </div><!-- fragment --><p>В приведенной ниже конструкции выполняется удаление файлов с моделями, кроме тех, которые были лучшими ( названия которых есть в массиве models_top ) </p><div class="fragment"><div class="line"><span class="keywordflow">for</span> model_file <span class="keywordflow">in</span> os.listdir(<span class="stringliteral">&quot;models&quot;</span>):</div>
 <div class="line">    <span class="keywordflow">if</span> model_file.split(<span class="stringliteral">&quot;.&quot;</span>)[0] <span class="keywordflow">not</span> <span class="keywordflow">in</span> models_top:</div>
 <div class="line">        os.remove(f<span class="stringliteral">&quot;models/{model_file}&quot;</span>)</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>Список list() с n-лучшими моделями по определенному признаку </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00188">188</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00209">209</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
@@ -280,13 +280,15 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>Признаки входных данных </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">Y</td><td>Целевые переменные входных данных </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score ) </dd></dl>
+<p>В приведенной ниже конструкции выполняется сохранение моделей. Это нужно для того, чтобы при итоговой работе в файле main.py моделям не нужно было заново обучаться - достаточно просто загрузить их из файла </p><div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/{name}.pkl&quot;</span>)</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/MyModelRegression.pkl&quot;</span>)</div>
+</div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score ) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00039">39</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00046">46</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
