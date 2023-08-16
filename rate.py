@@ -6,6 +6,7 @@ from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
 import joblib
+import os
 from preprocess import preprocess
 from create_model import create_model
 
@@ -177,6 +178,12 @@ def get_best_models (models_rating: tuple) -> dict:
 # r2_scores.pop(r2_scores.index(max(r2_scores)))
 # names.remove(models_top[len(models_top)-1])
 ## \endcode
+## \details В приведенной ниже конструкции выполняется удаление файлов с моделями, кроме тех, которые были лучшими ( названия которых есть в массиве models_top )
+## \code
+# for model_file in os.listdir("models"):
+#     if model_file.split(".")[0] not in models_top:
+#         os.remove(f"models/{model_file}")
+## \endcode
 ## \return Список list() с n-лучшими моделями по определенному признаку
 def get_models_top (models_rating: tuple, top_by: str, top_models_num: int=3) -> list:
     models_top = []
@@ -196,6 +203,10 @@ def get_models_top (models_rating: tuple, top_by: str, top_models_num: int=3) ->
                     r2_scores.pop(r2_scores.index(max(r2_scores)))
 
                 names.remove(models_top[len(models_top)-1])
+            
+            for model_file in os.listdir("models"):
+                if model_file.split(".")[0] not in models_top:
+                    os.remove(f"models/{model_file}")
         else:
             print(f'Введенный параметр [top_by={top_by}] является некорректным т.к не принадлежит последовательности ["mse", "mae", "r2_score"])')
             return 0
@@ -204,3 +215,5 @@ def get_models_top (models_rating: tuple, top_by: str, top_models_num: int=3) ->
         return 0
 
     return models_top
+
+get_models_top(rate_models(X,Y,False), "r2_score")
