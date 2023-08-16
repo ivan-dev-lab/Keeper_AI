@@ -236,5 +236,3 @@ def get_models_top (models_rating: tuple, top_by: str, top_models_num: int=3) ->
         return 0
 
     return models_top
-
-get_models_top(rate_models(X,Y,False), "r2_score")
