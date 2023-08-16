@@ -150,7 +150,3 @@ def get_best_models (models_rating: tuple) -> dict:
     best_models["r2_score"] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]
 
     return best_models
-
-models_rating = rate_models(X,Y, verbose=True)
-create_models_charts(models_rating)
-print(get_best_models(models_rating))
