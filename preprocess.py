@@ -40,8 +40,6 @@ def preprocess (filepath: str, data_type: str) -> tuple:
         X = data.copy()
         X_columns = X.columns
 
-        print(X_columns)
-
         scaler = StandardScaler().fit(X)
         X = pd.DataFrame(data=scaler.transform(X), columns=X_columns)
         
