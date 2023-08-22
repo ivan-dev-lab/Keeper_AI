@@ -1,5 +1,16 @@
 import argparse
 
+## \brief Пользовательское исключение
+## \authors ivan-dev-lab-home
+## \version 1.0.0
+## \date 22.08.2023
+## \details Исключение создано для создания ошибки при передаче НЕ двух кортежей в функцию check_both_args. Ниже примеры кода с использованием исключения
+## \code
+# if len(types) != 2:
+#     raise IncorrectNumberOfArgumentsError(f"Количество переданных объектов [{len(types)}] не соотвествует ожидаемой длине [2]")
+## \endcode
+class IncorrectNumberOfArgumentsError (Exception): pass
+
 ## \brief Функция-коммуникатор между пользователем и моделью
 ## \authors ivan-dev-lab-home
 ## \version 1.0.0
@@ -31,12 +42,34 @@ def make_communication () -> argparse.Namespace:
     
     return parser.parse_args()
 
+## \brief Функция проверки пары аргументов
+## \authors ivan-dev-lab-home
+## \version 1.0.0
+## \date 22.08.2023
+## \details Т.к в функции make_communication для передачи путей к данным имеются два парных флага ( например, --clients и --clients_x - стандартный .csv и .xlsx соотсвественно ), то необходимо проверять их обоих для выявления подходящего, после чего возвращать первый соотвествующий
+## \details Передаются эти флаги в код в виде массива с кортежами. Каждый кортеж выглядит как ( название_флага, значение_переданное_из_командной_строки )
+## \details ВАЖНО! Функция не проверяет правильность значения, она лишь возвращает тот кортеж, значение в котором НЕ None
+## \returns Кортеж, в котором присутсвует значение, либо None, если оба флага не были использованы
+def check_both_args (*types: tuple) -> tuple:
+    if len(types) != 2:
+        raise IncorrectNumberOfArgumentsError(f"Количество переданных объектов [{len(types)}] не соотвествует ожидаемой длине [2]")
+    else:
+        for arg in types:
+            if arg[1] != None and str(arg[1]).isdigit() == False:
+                return arg
+            
+
 ## \brief Главная функция в которой собраны все остальные функци проекта
 ## \authors ivan-dev-lab-home
 ## \version 1.0.0
 ## \returns None
 def main ():
-    make_communication ()
+    args = make_communication ()
+
+    for arg in args._get_kwargs():
+        ...
+            
+
 
 
 
