@@ -130,9 +130,6 @@ def create_models_charts (models_rating: tuple) -> None:
     plt.ylabel("Названия моделей")
     plt.savefig(f"models_charts/MAE")
 
-models_rating = rate_models(X, Y, verbose=True)
-create_models_charts(models_rating)
-
 ## \brief Функция расчета лучшей модели по трем метрикам
 ## \authors ivan-dev-lab-home
 ## \version 1.0.0
