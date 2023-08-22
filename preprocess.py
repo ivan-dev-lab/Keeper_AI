@@ -13,8 +13,11 @@ from sklearn.preprocessing import StandardScaler
 # data = pd.get_dummies(data, prefix=["contract_len"], columns=["Contract Length"], dtype=int)
 ## \endcode
 ## \return Кортеж tuple(), содержащий признаки и целевые переменные
-def preprocess (filepath: str) -> tuple:
-    data = pd.read_csv(filepath)
+def preprocess (filepath: str, data_type: str) -> tuple:
+    if data_type == "train":
+        data = pd.read_csv(filepath)
+    else:
+        data = pd.read_csv(filepath, index_col=[0])
 
     data.drop(columns=["CustomerID", "Tenure", "Last Interaction"], inplace=True)
     data.dropna(inplace=True)
@@ -23,12 +26,22 @@ def preprocess (filepath: str) -> tuple:
     data = pd.get_dummies(data, prefix=["sub_type"], columns=["Subscription Type"], dtype=int)
     data = pd.get_dummies(data, prefix=["contract_len"], columns=["Contract Length"], dtype=int)
 
-    X = data.drop(columns=["Churn"])
-    Y = data["Churn"]
+    if data_type == "train":
+        X = data.drop(columns=["Churn"])
+        Y = data["Churn"]
+        X_columns = X.columns
 
-    X_columns = X.columns
+        scaler = StandardScaler().fit(X)
+        X = pd.DataFrame(data=scaler.transform(X), columns=X_columns)
 
-    scaler = StandardScaler().fit(X)
-    X = pd.DataFrame(data=scaler.transform(X), columns=X_columns)
+        return (X, Y)
+    else:
+        X = data.copy()
+        X_columns = X.columns
 
-    return (X,Y)
+        print(X_columns)
+
+        scaler = StandardScaler().fit(X)
+        X = pd.DataFrame(data=scaler.transform(X), columns=X_columns)
+        
+        return X
