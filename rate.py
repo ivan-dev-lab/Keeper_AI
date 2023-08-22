@@ -168,6 +168,21 @@ def get_best_models (models_rating: tuple) -> dict:
 
     return best_models
 
+## \brief Пользовательское исключение
+## \authors ivan-dev-lab-home
+## \version 1.0.0
+## \date 22.08.2023
+## \details Исключение создано для создания ошибки при передаче некорректного параметра в функцию get_models_top. Ниже примеры кода с использованием исключения
+## \code
+# else:
+#     raise IncorrectParameterError(f'Введенный параметр [top_by={top_by}] является некорректным т.к не принадлежит последовательности ["mse", "mae", "r2_score"])')
+## \endcode
+## \code
+# else:
+#     raise IncorrectParameterError(f'Введенный параметр [top_models_num={top_models_num}] является некорректным т.к является больше, чем количество нейросетей, участвующих в рейтинге')
+## \endcode
+class IncorrectParameterError (Exception): pass
+
 ## \brief Функция возврата n-лучших моделей по метрике
 ## \authors ivan-dev-lab-home
 ## \version 1.0.0
@@ -229,10 +244,8 @@ def get_models_top (models_rating: tuple, top_by: str, top_models_num: int=3) ->
                 if model_file.split(".")[0] not in models_top:
                     os.remove(f"models/{model_file}")
         else:
-            print(f'Введенный параметр [top_by={top_by}] является некорректным т.к не принадлежит последовательности ["mse", "mae", "r2_score"])')
-            return 0
+            raise IncorrectParameterError(f'Введенный параметр [top_by={top_by}] является некорректным т.к не принадлежит последовательности ["mse", "mae", "r2_score"])')
     else:
-        print(f'Введенный параметр [top_models_num={top_models_num}] является некорректным т.к является больше, чем количество нейросетей, участвующих в рейтинге')
-        return 0
+        raise IncorrectParameterError(f'Введенный параметр [top_models_num={top_models_num}] является некорректным т.к является больше, чем количество нейросетей, участвующих в рейтинге')
 
     return models_top
