@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 ## \version 1.0.0
 ## \date 16.08.2023
 ## \param[in] filepath путь до необработанных данных 
+## \param[in] data_type Определение типа данных для функции. От параметра зависит - будет ли функция возвращать целевую переменную ( data_type="train" ) или только признаки ( data_type="test" )
 ## \details Т.к столбцы Gender, Subscription Type и Contract Length содержат категориальные значение, то было принято решение использовать pd.get_dummies для этиъ столбцов
 ## \code
 # data = pd.get_dummies(data, prefix=["gender"], columns=["Gender"], dtype=int)
