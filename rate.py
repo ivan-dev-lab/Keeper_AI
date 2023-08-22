@@ -10,7 +10,7 @@ import os
 from preprocess import preprocess
 from create_model import create_model
 
-## \brief Кортеж с предобработанными данными, признаками и целевым переменными
+## \brief Кортеж с признаками и целевым переменными
 ## \authors ivan-dev-lab
 ## \version 1.0.0
 ## \date 05.08.2023
