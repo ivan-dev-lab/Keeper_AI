@@ -3,8 +3,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
-from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import HistGradientBoostingClassifier, ExtraTreesClassifier, BaggingClassifier, AdaBoostClassifier, RandomForestClassifier, GradientBoostingClassifier
+from sklearn.tree import DecisionTreeClassifier
 import joblib
 import os
 from preprocess import preprocess
@@ -14,7 +14,7 @@ from create_model import create_model
 ## \authors ivan-dev-lab
 ## \version 1.0.0
 ## \date 05.08.2023
-response_tuple = preprocess("data/train.csv")
+response_tuple = preprocess("data/train.csv", "train")
 
 ## \brief Признаки данных
 ## \authors ivan-dev-lab
@@ -47,13 +47,13 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
     model = create_model(input_shape=len(X.columns))
 
     models = {
-        'HistGradientBoostingRegressor': HistGradientBoostingRegressor,
-        'ExtraTreesRegressor': ExtraTreesRegressor,
-        'BaggingRegressor': BaggingRegressor,
-        'AdaBoostRegressor': AdaBoostRegressor,
-        'RandomForestRegressor': RandomForestRegressor,
-        'GradientBoostingRegressor': GradientBoostingRegressor,
-        'DecisionTreeRegressor': DecisionTreeRegressor
+        'HistGradientBoostingClassifier': HistGradientBoostingClassifier,
+        'ExtraTreesClassifier': ExtraTreesClassifier,
+        'BaggingClassifier': BaggingClassifier,
+        'AdaBoostClassifier': AdaBoostClassifier,
+        'RandomForestClassifier': RandomForestClassifier,
+        'GradientBoostingClassifier': GradientBoostingClassifier,
+        'DecisionTreeClassifier': DecisionTreeClassifier
     }
     
     names, mse_scores, mae_scores, r2_scores = [], [], [], []
@@ -129,6 +129,9 @@ def create_models_charts (models_rating: tuple) -> None:
     plt.xlabel("Mean-Absolute-Error")
     plt.ylabel("Названия моделей")
     plt.savefig(f"models_charts/MAE")
+
+models_rating = rate_models(X, Y, verbose=True)
+create_models_charts(models_rating)
 
 ## \brief Функция расчета лучшей модели по трем метрикам
 ## \authors ivan-dev-lab-home
