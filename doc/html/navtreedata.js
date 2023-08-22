@@ -33,6 +33,11 @@ var NAVTREE =
         [ "Переменные", "namespacemembers_vars.html", null ]
       ] ]
     ] ],
+    [ "Классы", "annotated.html", [
+      [ "Классы", "annotated.html", "annotated_dup" ],
+      [ "Алфавитный указатель классов", "classes.html", null ],
+      [ "Иерархия классов", "hierarchy.html", "hierarchy" ]
+    ] ],
     [ "Файлы", "files.html", [
       [ "Файлы", "files.html", "files_dup" ]
     ] ]
@@ -41,7 +46,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"create__model_8py.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

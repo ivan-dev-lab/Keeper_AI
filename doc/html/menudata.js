@@ -30,5 +30,9 @@ var menudata={children:[
 {text:"Указатель",url:"namespacemembers.html"},
 {text:"Функции",url:"namespacemembers_func.html"},
 {text:"Переменные",url:"namespacemembers_vars.html"}]}]},
+{text:"Классы",url:"annotated.html",children:[
+{text:"Классы",url:"annotated.html"},
+{text:"Алфавитный указатель классов",url:"classes.html"},
+{text:"Иерархия классов",url:"hierarchy.html"}]},
 {text:"Файлы",url:"files.html",children:[
 {text:"Файлы",url:"files.html"}]}]}

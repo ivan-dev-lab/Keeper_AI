@@ -1,27 +1,30 @@
 var indexSectionsWithContent =
 {
-  0: "cgmprxy",
-  1: "cmpr",
+  0: "cgimprxy",
+  1: "i",
   2: "cmpr",
-  3: "cgmpr",
-  4: "rxy"
+  3: "cmpr",
+  4: "cgmpr",
+  5: "rxy"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "namespaces",
-  2: "files",
-  3: "functions",
-  4: "variables"
+  1: "classes",
+  2: "namespaces",
+  3: "files",
+  4: "functions",
+  5: "variables"
 };
 
 var indexSectionLabels =
 {
   0: "Указатель",
-  1: "Пространства имен",
-  2: "Файлы",
-  3: "Функции",
-  4: "Переменные"
+  1: "Классы",
+  2: "Пространства имен",
+  3: "Файлы",
+  4: "Функции",
+  5: "Переменные"
 };
 

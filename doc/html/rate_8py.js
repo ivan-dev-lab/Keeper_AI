@@ -1,5 +1,6 @@
 var rate_8py =
 [
+    [ "rate.IncorrectParameterError", "classrate_1_1_incorrect_parameter_error.html", null ],
     [ "create_models_charts", "rate_8py.html#a3bdb43f1a48f13278be89f28a3643397", null ],
     [ "get_best_models", "rate_8py.html#acc01d01b208b1af5fd46ca4986cb71ec", null ],
     [ "get_models_top", "rate_8py.html#a696f38ca9655465899cc4b2c6fa3634b", null ],
