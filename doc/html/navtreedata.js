@@ -22,13 +22,27 @@
 
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
-var menudata={children:[
-{text:"Титульная страница",url:"index.html"},
-{text:"Пространства имен",url:"namespaces.html",children:[
-{text:"Пространства имен",url:"namespaces.html"},
-{text:"Члены пространств имен",url:"namespacemembers.html",children:[
-{text:"Указатель",url:"namespacemembers.html"},
-{text:"Функции",url:"namespacemembers_func.html"},
-{text:"Переменные",url:"namespacemembers_vars.html"}]}]},
-{text:"Файлы",url:"files.html",children:[
-{text:"Файлы",url:"files.html"}]}]}
+var NAVTREE =
+[
+  [ "Keeper_AI", "index.html", [
+    [ "Пространства имен", "namespaces.html", [
+      [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
+      [ "Члены пространств имен", "namespacemembers.html", [
+        [ "Указатель", "namespacemembers.html", null ],
+        [ "Функции", "namespacemembers_func.html", null ],
+        [ "Переменные", "namespacemembers_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Файлы", "files.html", [
+      [ "Файлы", "files.html", "files_dup" ]
+    ] ]
+  ] ]
+];
+
+var NAVTREEINDEX =
+[
+"create__model_8py.html"
+];
+
+var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';
+var SYNCOFFMSG = 'нажмите на включить для синхронизации панелей';
