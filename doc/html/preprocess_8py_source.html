@@ -103,12 +103,10 @@ $(function() {
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        X = data.copy()</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        X_columns = X.columns</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        print(X_columns)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        scaler = StandardScaler().fit(X)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        X = pd.DataFrame(data=scaler.transform(X), columns=X_columns)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">return</span> X</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        scaler = StandardScaler().fit(X)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        X = pd.DataFrame(data=scaler.transform(X), columns=X_columns)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> X</div>
 <div class="ttc" id="anamespacepreprocess_html"><div class="ttname"><a href="namespacepreprocess.html">preprocess</a></div><div class="ttdef"><b>Definition</b> <a href="preprocess_8py_source.html#l00001">preprocess.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
