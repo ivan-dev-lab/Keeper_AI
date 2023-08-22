@@ -284,7 +284,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>В приведенной ниже конструкции выполняется сохранение моделей. Это нужно для того, чтобы при итоговой работе в файле main.py моделям не нужно было заново обучаться - достаточно просто загрузить их из файла </p><div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/{name}.pkl&quot;</span>)</div>
+<p>В приведенной ниже конструкции выполняется сохранение моделей. Это нужно для того, чтобы при итоговой работе в файле <a class="el" href="main_8py.html">main.py</a> моделям не нужно было заново обучаться - достаточно просто загрузить их из файла </p><div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/{name}.pkl&quot;</span>)</div>
 </div><!-- fragment --> <div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/MyModelRegression.pkl&quot;</span>)</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score ) </dd></dl>
 

@@ -95,7 +95,7 @@ $(function() {
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">   29</a></span>Y = response_tuple[1]</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">   46</a></span><span class="keyword">def </span>rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=<span class="keyword">True</span>) -&gt; tuple:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">   46</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">rate_models</a> (X: pd.DataFrame, Y: pd.DataFrame, verbose=<span class="keyword">True</span>) -&gt; tuple:</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    model = <a class="code hl_namespace" href="namespacecreate__model.html">create_model</a>(input_shape=len(X.columns))</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    models = {</div>
@@ -191,7 +191,7 @@ $(function() {
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">return</span> best_models</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">  209</a></span><span class="keyword">def </span>get_models_top (models_rating: tuple, top_by: str, top_models_num: int=3) -&gt; list:</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">  209</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">get_models_top</a> (models_rating: tuple, top_by: str, top_models_num: int=3) -&gt; list:</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    models_top = []</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    </div>
@@ -224,6 +224,8 @@ $(function() {
 <div class="ttc" id="anamespacecreate__model_html"><div class="ttname"><a href="namespacecreate__model.html">create_model</a></div><div class="ttdef"><b>Definition</b> <a href="create__model_8py_source.html#l00001">create_model.py:1</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html"><div class="ttname"><a href="namespacepreprocess.html">preprocess</a></div><div class="ttdef"><b>Definition</b> <a href="preprocess_8py_source.html#l00001">preprocess.py:1</a></div></div>
 <div class="ttc" id="anamespacerate_html_a3bdb43f1a48f13278be89f28a3643397"><div class="ttname"><a href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">rate.create_models_charts</a></div><div class="ttdeci">None create_models_charts(tuple models_rating)</div><div class="ttdoc">Функция построения графиков рейтинга моделей</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00110">rate.py:110</a></div></div>
+<div class="ttc" id="anamespacerate_html_a696f38ca9655465899cc4b2c6fa3634b"><div class="ttname"><a href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">rate.get_models_top</a></div><div class="ttdeci">list get_models_top(tuple models_rating, str top_by, int top_models_num=3)</div><div class="ttdoc">Функция возврата n-лучших моделей по метрике</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00209">rate.py:209</a></div></div>
+<div class="ttc" id="anamespacerate_html_a95aa05a2caf14b504ec45d984735c350"><div class="ttname"><a href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">rate.rate_models</a></div><div class="ttdeci">tuple rate_models(pd.DataFrame X, pd.DataFrame Y, verbose=True)</div><div class="ttdoc">Функция-оценщик моделей</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00046">rate.py:46</a></div></div>
 <div class="ttc" id="anamespacerate_html_acc01d01b208b1af5fd46ca4986cb71ec"><div class="ttname"><a href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">rate.get_best_models</a></div><div class="ttdeci">dict get_best_models(tuple models_rating)</div><div class="ttdoc">Функция расчета лучшей модели по трем метрикам</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00157">rate.py:157</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['get_5fbest_5fmodels_0',['get_best_models',['../namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec',1,'rate']]],
-  ['get_5fmodels_5ftop_1',['get_models_top',['../namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b',1,'rate']]]
+  ['main_0',['main',['../namespacemain.html',1,'main'],['../namespacemain.html#a3140e9a5b6a71ffbf498198cfc471b88',1,'main.main()']]],
+  ['main_2epy_1',['main.py',['../main_8py.html',1,'']]]
 ];
