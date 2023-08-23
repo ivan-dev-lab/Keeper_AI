@@ -114,11 +114,40 @@ $(document).ready(function(){initNavTree('namespacemain.html',''); initResizable
 <tr class="memitem:a84b46898f03320e2277e5a992264f133"><td class="memItemLeft" align="right" valign="top">argparse.Namespace&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a84b46898f03320e2277e5a992264f133">make_communication</a> ()</td></tr>
 <tr class="memdesc:a84b46898f03320e2277e5a992264f133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция-коммуникатор между пользователем и моделью  <br /></td></tr>
 <tr class="separator:a84b46898f03320e2277e5a992264f133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37199c4ba52ad4ba646dc10e1d31cdaf"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a37199c4ba52ad4ba646dc10e1d31cdaf">create_request</a> ()</td></tr>
+<tr class="memdesc:a37199c4ba52ad4ba646dc10e1d31cdaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция проверки введенных аргументов  <br /></td></tr>
+<tr class="separator:a37199c4ba52ad4ba646dc10e1d31cdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3140e9a5b6a71ffbf498198cfc471b88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a3140e9a5b6a71ffbf498198cfc471b88">main</a> ()</td></tr>
 <tr class="memdesc:a3140e9a5b6a71ffbf498198cfc471b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Главная функция в которой собраны все остальные функци проекта  <br /></td></tr>
 <tr class="separator:a3140e9a5b6a71ffbf498198cfc471b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Функции</h2>
+<a id="a37199c4ba52ad4ba646dc10e1d31cdaf" name="a37199c4ba52ad4ba646dc10e1d31cdaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37199c4ba52ad4ba646dc10e1d31cdaf">&#9670;&#160;</a></span>create_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> dict main.create_request </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция проверки введенных аргументов </p>
+<dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab </dd></dl>
+<dl class="section version"><dt>Версия</dt><dd>1.0.0 </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>23.08.2023</dd></dl>
+<p>Функция проверят корректность введенных аргументов при запуске программы из командной строки.</p>
+<p>Проверятся существование файла только для флага &ndash;clients, во всех остальных случаях используются регулярные выражения </p><dl class="section return"><dt>Возвращает</dt><dd>Словарь dict() с именами и значениями полученных аргументов </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="main_8py_source.html">main.py</a> строка <a class="el" href="main_8py_source.html#l00048">48</a></p>
+
+</div>
+</div>
 <a id="a3140e9a5b6a71ffbf498198cfc471b88" name="a3140e9a5b6a71ffbf498198cfc471b88"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3140e9a5b6a71ffbf498198cfc471b88">&#9670;&#160;</a></span>main()</h2>
 
@@ -135,11 +164,12 @@ $(document).ready(function(){initNavTree('namespacemain.html',''); initResizable
 </div><div class="memdoc">
 
 <p>Главная функция в которой собраны все остальные функци проекта </p>
-<dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab-home </dd></dl>
+<dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab </dd></dl>
 <dl class="section version"><dt>Версия</dt><dd>1.1.0 </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>23.08.2023 </dd></dl>
 <dl class="section return"><dt>Возвращает</dt><dd>None </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="main_8py_source.html">main.py</a> строка <a class="el" href="main_8py_source.html#l00044">44</a></p>
+<p class="definition">См. определение в файле <a class="el" href="main_8py_source.html">main.py</a> строка <a class="el" href="main_8py_source.html#l00077">77</a></p>
 
 </div>
 </div>
@@ -159,12 +189,12 @@ $(document).ready(function(){initNavTree('namespacemain.html',''); initResizable
 </div><div class="memdoc">
 
 <p>Функция-коммуникатор между пользователем и моделью </p>
-<dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab-home </dd></dl>
+<dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab </dd></dl>
 <dl class="section version"><dt>Версия</dt><dd>1.1.2 </dd></dl>
 <dl class="section date"><dt>Дата</dt><dd>22.08.2023</dd></dl>
 <p>Функция обеспечивает коммуникацию между моделью и пользователем путем создания флагов для комадной строки </p><dl class="section return"><dt>Возвращает</dt><dd>Пространство имен argparse.Namespace </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="main_8py_source.html">main.py</a> строка <a class="el" href="main_8py_source.html#l00021">21</a></p>
+<p class="definition">См. определение в файле <a class="el" href="main_8py_source.html">main.py</a> строка <a class="el" href="main_8py_source.html#l00022">22</a></p>
 
 </div>
 </div>
