@@ -13,9 +13,10 @@ class IncorrectNumberOfArgumentsError (Exception): pass
 
 ## \brief Функция-коммуникатор между пользователем и моделью
 ## \authors ivan-dev-lab-home
-## \version 1.0.0
+## \version 1.0.1
 ## \date 22.08.2023
 ## \details Функция обеспечивает коммуникацию между моделью и пользователем путем создания флагов для комадной строки
+## \warning Необходимо что-то сделать с аргументами передачи путей хранения. При передаче определенного из пары ( например, clients_x вместо clients ), вписывается значение по умолчанию у clients
 ## \returns Пространство имен argparse.Namespace
 def make_communication () -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Keeper_AI - Cистема классификации клиентов.")
@@ -60,7 +61,7 @@ def check_both_args (*types: tuple):
 
 ## \brief Главная функция в которой собраны все остальные функци проекта
 ## \authors ivan-dev-lab-home
-## \version 1.0.0
+## \version 1.1.0
 ## \returns None
 def main ():
     args = make_communication ()
