@@ -30,13 +30,12 @@ def make_communication () -> argparse.Namespace:
     
     rate_arg_group = parser.add_argument_group(title="Оценка различных моделей", description="При использовании только флага --rate из данной группы будут построены ТОЛЬКО графики, которые будут сохранены по умолчанию в C:/Users/User/Keeper_AI-work/rating/")
     rate_arg_group.add_argument("--rate", action="store_true", help="флаг определяет выполнение задачи оценки по умолчанию")
-    rate_arg_group.add_argument("--save_charts", type=str, help="Путь до предполагаемой папки с графиками", default="C:/Users/User/Keeper_AI-work/rating/charts/")
-    rate_arg_group.add_argument("--save_best", type=str, help="Путь до предполагаемого файла .CSV с оценкой моделей", default="C:/Users/User/Keeper_AI-work/rating/best.csv")
-    rate_arg_group.add_argument("--save_best_x", type=str, help="Путь до предполагаемого файла .XLSX с оценкой моделей", default="C:/Users/User/Keeper_AI-work/rating/best.xlsx")
-    rate_arg_group.add_argument("--top", action="store_true", help="флаг определяет выполнение задачи составление топ 3 моделей с сохранением по умолчанию")
-    rate_arg_group.add_argument("--num_in_top", type=int, help="Длина составляемого топа", default=3)
-    rate_arg_group.add_argument("--save_top", type=str, help="Путь до предполагаемого файла .CSV с топ 3 моделей", default="C:/Users/User/Keeper_AI-work/rating/top.csv")
-    rate_arg_group.add_argument("--save_top_x", type=str, help="Путь до предполагаемого файла .XLSX с топ 3 моделей", default="C:/Users/User/Keeper_AI-work/rating/top.xlsx")
+    rate_arg_group.add_argument("--charts", type=str, help="Путь до предполагаемой папки с графиками", default="C:/Users/User/Keeper_AI-work/rating/charts/")
+    rate_arg_group.add_argument("--best", type=str, help="Путь до предполагаемого файла .CSV с оценкой моделей", default="C:/Users/User/Keeper_AI-work/rating/best.csv")
+    rate_arg_group.add_argument("--best_x", type=str, help="Путь до предполагаемого файла .XLSX с оценкой моделей", default="C:/Users/User/Keeper_AI-work/rating/best.xlsx")
+    rate_arg_group.add_argument("--num_top", type=int, help="Длина составляемого топа", default=3)
+    rate_arg_group.add_argument("--top", type=str, help="Путь до предполагаемого файла .CSV с топ 3 моделей", default="C:/Users/User/Keeper_AI-work/rating/top.csv")
+    rate_arg_group.add_argument("--top_x", type=str, help="Путь до предполагаемого файла .XLSX с топ 3 моделей", default="C:/Users/User/Keeper_AI-work/rating/top.xlsx")
 
     parser.add_argument("--train", action="store_true", help="флаг определяет необходимость обучения моделей")
     
@@ -49,14 +48,14 @@ def make_communication () -> argparse.Namespace:
 ## \details Т.к в функции make_communication для передачи путей к данным имеются два парных флага ( например, --clients и --clients_x - стандартный .csv и .xlsx соотсвественно ), то необходимо проверять их обоих для выявления подходящего, после чего возвращать первый соотвествующий
 ## \details Передаются эти флаги в код в виде массива с кортежами. Каждый кортеж выглядит как ( название_флага, значение_переданное_из_командной_строки )
 ## \details ВАЖНО! Функция не проверяет правильность значения, она лишь возвращает тот кортеж, значение в котором НЕ None
-## \returns Кортеж, в котором присутсвует значение, либо None, если оба флага не были использованы
-def check_both_args (*types: tuple) -> tuple:
+## \returns Значение переданного аргумента, либо None, если оба флага не были использованы
+def check_both_args (*types: tuple):
     if len(types) != 2:
         raise IncorrectNumberOfArgumentsError(f"Количество переданных объектов [{len(types)}] не соотвествует ожидаемой длине [2]")
     else:
         for arg in types:
             if arg[1] != None and str(arg[1]).isdigit() == False:
-                return arg
+                return arg[1]
             
 
 ## \brief Главная функция в которой собраны все остальные функци проекта
@@ -66,10 +65,29 @@ def check_both_args (*types: tuple) -> tuple:
 def main ():
     args = make_communication ()
 
-    for arg in args._get_kwargs():
-        ...
-            
+    request = {}
 
+    for i, arg in enumerate(args._get_kwargs()):
+        #print(index,arg)
+        if arg[0] == "clients" and args._get_kwargs()[i+1][0] == "clients_x":
+            request["path_clients"] = check_both_args(arg, args._get_kwargs()[i+1])
+        elif arg[0] == "train":
+            request["need_train"] = arg[1]
+        if arg[0] == "pred" and args._get_kwargs()[i+1][0] == "pred_x":
+            request["path_pred"] = check_both_args(arg, args._get_kwargs()[i+1])
+        elif arg[0] == "rate":
+            request["need_rate"] = arg[1]
+        elif arg[0] == "charts":
+            request["path_charts"] = arg[1]
+        elif arg[0] == "best" and args._get_kwargs()[i+1][0] == "best_x":
+            request["path_best"] = check_both_args(arg, args._get_kwargs()[i+1])
+        elif arg[0] == "num_top":
+            request["num_top"] = arg[1]
+        elif arg[0] == "top" and args._get_kwargs()[i+1][0] == "top_x":
+            request["path_top"] = check_both_args(arg, args._get_kwargs()[i+1])
+            
+    for name,value in request.items():
+        print(f"{name}: {value}")
 
 
 
