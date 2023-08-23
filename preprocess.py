@@ -2,6 +2,11 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from progress.bar import IncrementalBar
 
+## \brief Переменная с полосой загрузки
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 23.08.2023
+## \details При наличии полосы загрузке в консоли будет легче отследить ошибку, возникающую при работе функции preprocess
 bar = IncrementalBar('Предобработка данных...', max=6)
 
 ## \brief Функция предобработки данных
