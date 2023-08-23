@@ -1,6 +1,7 @@
 import argparse
 import os
 import re
+from preprocess import preprocess
 
 ## \brief Пользовательское исключение
 ## \authors ivan-dev-lab
@@ -25,10 +26,11 @@ def make_communication () -> argparse.Namespace:
     data_arg_group = parser.add_argument_group(title="Сохранение и загрузка данных", description="Если не указывать флаг --pred, то данные с предсказаниями будут загружаться в C:/Users/User/Keeper_AI-work/predictions/clients.csv")
     data_arg_group.add_argument("--clients", type=str, help="Путь до исходных данных в формате [.CSV|.XLSX]") # В КОНЦЕ ОБЯЗАТЕЛЬНО СДЕЛАТЬ required=True
     data_arg_group.add_argument("--pred", type=str, help="Путь до предполагаемого файла в формате [.CSV|.XLSX] с конечными данными", default="C:/Users/User/Keeper_AI-work/predictions/clients.csv")
+    data_arg_group.add_argument("--save_models", type=str, help="Путь до предполагаемого каталога с сохраненными моделями из составленного топа")
     
     rate_arg_group = parser.add_argument_group(title="Оценка различных моделей", description="При использовании только флага --rate из данной группы все будет сохранено в каталог по умолчанию в C:/Users/User/Keeper_AI-work/rating/ . Если не использовать свое значение при флаге --num_top, то топ будет включать в себя 3 позиции")
     rate_arg_group.add_argument("--rate", action="store_true", help="флаг определяет выполнение задачи оценки по умолчанию")
-    rate_arg_group.add_argument("--charts", type=str, help="Путь до предполагаемой папки с графиками", default="C:/Users/User/Keeper_AI-work/rating/charts/")
+    rate_arg_group.add_argument("--charts", type=str, help="Путь до предполагаемого каталога с графиками", default="C:/Users/User/Keeper_AI-work/rating/charts/")
     rate_arg_group.add_argument("--best", type=str, help="Путь до предполагаемого файла в формате [.CSV|.XLSX] с оценкой моделей", default="C:/Users/User/Keeper_AI-work/rating/best.csv")
     rate_arg_group.add_argument("--top", type=str, help="Путь до предполагаемого файла в формате [.CSV|.XLSX] с топ N моделей", default="C:/Users/User/Keeper_AI-work/rating/top.csv")
     rate_arg_group.add_argument("--num_top", type=int, help="Длина составляемого топа", default=3)
@@ -51,19 +53,21 @@ def create_request () -> dict:
 
     for arg in args._get_kwargs():
         if arg[0] == "clients" and os.path.exists(arg[1]):
-            request["path_clients"] = arg[1]
+            request["clients"] = arg[1]
         elif arg[0] == "train":
-            request["need_train"] = arg[1]
+            request["train"] = arg[1]
         if arg[0] == "pred" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
-            request["path_pred"] = arg[1]
+            request["pred"] = arg[1]
         elif arg[0] == "rate":
-            request["need_rate"] = arg[1]
+            request["rate"] = arg[1]
         elif arg[0] == "charts" and re.match(r"\S*/*$", arg[1]) != None:
-            request["path_charts"] = arg[1]
+            request["charts"] = arg[1]
+        elif arg[0] == "save_models" and re.match(r"\S*/*$", arg[1]) != None:
+            request["save_models"] = arg[1]
         elif arg[0] == "best" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
-            request["path_best"]  = arg[1]
+            request["best"]  = arg[1]
         elif arg[0] == "top" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
-            request["path_top"] = arg[1]
+            request["top"] = arg[1]
         elif arg[0] == "num_top":
             request["num_top"] = arg[1]
 
@@ -77,17 +81,22 @@ def create_request () -> dict:
 def main ():
     # request временно заполнен на время разработки, в конце должно быть request = create_request ()
     request = {
-        'path_clients': 'C:/Users/User/Desktop/clients.csv',
-        'path_pred': 'C:/Users/User/Desktop/Keeper_AI-work/clients_preprocessed.xlsx',
-        'need_rate': True,
-        'path_charts': 'C:/Users/User/Desktop/Keeper_AI-work/charts',
-        'path_best': 'C:/Users/User/Desktop/Keeper_AI-work/rating/best.csv',
-        'path_top': 'C:/Users/User/Desktop/Keeper_AI-work/rating/top.csv',
+        'clients': 'C:/Users/User/Desktop/clients.csv',
+        'pred': 'C:/Users/User/Desktop/Keeper_AI-work/clients_preprocessed.xlsx',
+        'save_models': 'C:/Users/User/Desktop/Keeper_AI-work/models/',
+        'rate': True,
+        'charts': 'C:/Users/User/Desktop/Keeper_AI-work/charts',
+        'best': 'C:/Users/User/Desktop/Keeper_AI-work/rating/best.csv',
+        'top': 'C:/Users/User/Desktop/Keeper_AI-work/rating/top.csv',
         'num_top': 4,
-        'need_train': True
+        'train': True
     }
         
-    print(request)
+    clients_data = preprocess(request["clients"], data_type="test")
+    
+    if request['train']:
+        train_data = preprocess("data/train.csv")
+        # продумать обучение моделей и их сохранение
 
 
 
