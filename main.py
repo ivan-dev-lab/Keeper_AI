@@ -1,5 +1,6 @@
 import argparse
 import os
+import re
 
 ## \brief Пользовательское исключение
 ## \authors ivan-dev-lab-home
@@ -22,7 +23,7 @@ def make_communication () -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Keeper_AI - Cистема классификации клиентов.")
 
     data_arg_group = parser.add_argument_group(title="Сохранение и загрузка данных", description="Если не указывать флаг --pred, то данные с предсказаниями будут загружаться в C:/Users/User/Keeper_AI-work/predictions/clients.csv")
-    data_arg_group.add_argument("--clients", type=str, help="Путь до исходных данных в формате [.CSV|.XLSX]")
+    data_arg_group.add_argument("--clients", type=str, help="Путь до исходных данных в формате [.CSV|.XLSX]", required=True)
     data_arg_group.add_argument("--pred", type=str, help="Путь до предполагаемого файла в формате [.CSV|.XLSX] с конечными данными", default="C:/Users/User/Keeper_AI-work/predictions/clients.csv")
     
     rate_arg_group = parser.add_argument_group(title="Оценка различных моделей", description="При использовании только флага --rate из данной группы все будет сохранено в каталог по умолчанию в C:/Users/User/Keeper_AI-work/rating/ . Если не использовать свое значение при флаге --num_top, то топ будет включать в себя 3 позиции")
@@ -47,26 +48,23 @@ def main ():
     request = {}
 
     for arg in args._get_kwargs():
-        #print(index,arg)
+        print(arg)
         if arg[0] == "clients" and os.path.exists(arg[1]):
             request["path_clients"] = arg[1]
         elif arg[0] == "train":
             request["need_train"] = arg[1]
-        if arg[0] == "pred" and os.path.exists(arg[1]):
+        if arg[0] == "pred" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
             request["path_pred"] = arg[1]
         elif arg[0] == "rate":
             request["need_rate"] = arg[1]
-        elif arg[0] == "charts" and os.path.exists(arg[1]):
+        elif arg[0] == "charts" and re.match(r"\S*/*$", arg[1]) != None:
             request["path_charts"] = arg[1]
-        elif arg[0] == "best" and os.path.exists(arg[1]):
+        elif arg[0] == "best" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
             request["path_best"]  = arg[1]
         elif arg[0] == "num_top":
             request["num_top"] = arg[1]
-        elif arg[0] == "top" and os.path.exists(arg[1]):
+        elif arg[0] == "top" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
             request["path_top"] = arg[1]
-            
-    for name,value in request.items():
-        print(f"{name}: {value}")
 
 
 
