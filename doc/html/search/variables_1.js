@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_0',['X',['../namespacerate.html#a80e9f81371822b4141460f03a7ce56bd',1,'rate']]]
+  ['response_5ftuple_0',['response_tuple',['../namespacerate.html#ae8de75bf9fbc4efc71c5cfd55b26e902',1,'rate']]]
 ];
