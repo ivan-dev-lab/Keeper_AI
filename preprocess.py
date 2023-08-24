@@ -2,13 +2,6 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from progress.bar import IncrementalBar
 
-## \brief Переменная с полосой загрузки
-## \authors ivan-dev-lab
-## \version 1.0.0
-## \date 23.08.2023
-## \details При наличии полосы загрузке в консоли будет легче отследить ошибку, возникающую при работе функции preprocess
-bar = IncrementalBar('Предобработка данных...', max=6)
-
 ## \brief Функция предобработки данных
 ## \authors ivan-dev-lab
 ## \version 1.0.1
@@ -23,6 +16,8 @@ bar = IncrementalBar('Предобработка данных...', max=6)
 ## \endcode
 ## \return Кортеж tuple(), содержащий признаки и целевые переменные
 def preprocess (filepath: str, data_type: str) -> tuple:
+    bar = IncrementalBar('Предобработка данных...', max=6)
+
     if data_type == "train":
         data = pd.read_csv(filepath)
     else:
