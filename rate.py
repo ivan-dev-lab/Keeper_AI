@@ -101,13 +101,12 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
      
 ## \brief Функция построения графиков рейтинга моделей
 ## \authors ivan-dev-lab
-## \version 1.0.0
-## \date 05.08.2023
-## \param[in] X Признаки входных данных 
-## \param[in] Y Целевые переменные входных данных 
-## \param[in] verbose Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True
+## \version 1.1.0
+## \date 24.08.2023
+## \param[in] models_rating Кортеж с рейтингом моделей из rate_models
+## \param[in] fcharts Путь до каталога с графиками 
 ## \return None
-def create_models_charts (models_rating: tuple) -> None:
+def create_models_charts (models_rating: tuple, fcharts: str) -> None:
     names, mse_scores, mae_scores, r2_scores = models_rating
 
     print(names, mse_scores, mae_scores, r2_scores, sep="\n\n")
@@ -118,17 +117,17 @@ def create_models_charts (models_rating: tuple) -> None:
     sns.barplot(x=r2_scores, y=names)
     plt.xlabel("r2_score")
     plt.ylabel("Названия моделей")
-    plt.savefig(f"models_charts/r2_scores")
+    plt.savefig(f"{fcharts}/r2_scores")
     
     sns.barplot(x=mse_scores, y=names)
     plt.xlabel("Mean-Squared-Error")
     plt.ylabel("Названия моделей")
-    plt.savefig(f"models_charts/MSE")
+    plt.savefig(f"{fcharts}/MSE")
 
     sns.barplot(x=mae_scores, y=names)
     plt.xlabel("Mean-Absolute-Error")
     plt.ylabel("Названия моделей")
-    plt.savefig(f"models_charts/MAE")
+    plt.savefig(f"{fcharts}/MAE")
 
 ## \brief Функция расчета лучшей модели по трем метрикам
 ## \authors ivan-dev-lab-home
