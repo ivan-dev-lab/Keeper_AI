@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Keeper_AI", "index.html", [
+    [ "Ошибки", "bug.html", null ],
     [ "Пространства имен", "namespaces.html", [
       [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
       [ "Члены пространств имен", "namespacemembers.html", [

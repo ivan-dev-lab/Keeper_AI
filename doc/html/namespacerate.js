@@ -1,7 +1,7 @@
 var namespacerate =
 [
     [ "IncorrectParameterError", "classrate_1_1_incorrect_parameter_error.html", null ],
-    [ "create_models_charts", "namespacerate.html#ab1f9ce4d99525c24e7e40c6eb50a2020", null ],
+    [ "create_models_charts", "namespacerate.html#adc1948455c8755e55bf6b87cbac8563b", null ],
     [ "get_best_models", "namespacerate.html#a0359e1d8ef2fa25a47ff17122c11ead4", null ],
     [ "get_models_top", "namespacerate.html#a5271cfa99d7b7c3ed75e3371e784b68d", null ],
     [ "rate_models", "namespacerate.html#a95aa05a2caf14b504ec45d984735c350", null ],

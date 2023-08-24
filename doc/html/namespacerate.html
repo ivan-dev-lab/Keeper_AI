@@ -115,9 +115,9 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 <tr class="memitem:a95aa05a2caf14b504ec45d984735c350"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">rate_models</a> (pd.DataFrame <a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>, pd.DataFrame <a class="el" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">Y</a>, verbose=True)</td></tr>
 <tr class="memdesc:a95aa05a2caf14b504ec45d984735c350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция-оценщик моделей  <br /></td></tr>
 <tr class="separator:a95aa05a2caf14b504ec45d984735c350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1f9ce4d99525c24e7e40c6eb50a2020"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#ab1f9ce4d99525c24e7e40c6eb50a2020">create_models_charts</a> (tuple models_rating, str fcharts)</td></tr>
-<tr class="memdesc:ab1f9ce4d99525c24e7e40c6eb50a2020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция построения графиков рейтинга моделей  <br /></td></tr>
-<tr class="separator:ab1f9ce4d99525c24e7e40c6eb50a2020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc1948455c8755e55bf6b87cbac8563b"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#adc1948455c8755e55bf6b87cbac8563b">create_models_charts</a> (tuple models_rating, str fpath)</td></tr>
+<tr class="memdesc:adc1948455c8755e55bf6b87cbac8563b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция построения графиков рейтинга моделей  <br /></td></tr>
+<tr class="separator:adc1948455c8755e55bf6b87cbac8563b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0359e1d8ef2fa25a47ff17122c11ead4"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a0359e1d8ef2fa25a47ff17122c11ead4">get_best_models</a> (tuple models_rating, str fpath)</td></tr>
 <tr class="memdesc:a0359e1d8ef2fa25a47ff17122c11ead4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция расчета лучшей модели по трем метрикам  <br /></td></tr>
 <tr class="separator:a0359e1d8ef2fa25a47ff17122c11ead4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,8 +138,8 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 <tr class="separator:a919776fc0de3ac921f2d4d999e81caa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Функции</h2>
-<a id="ab1f9ce4d99525c24e7e40c6eb50a2020" name="ab1f9ce4d99525c24e7e40c6eb50a2020"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1f9ce4d99525c24e7e40c6eb50a2020">&#9670;&#160;</a></span>create_models_charts()</h2>
+<a id="adc1948455c8755e55bf6b87cbac8563b" name="adc1948455c8755e55bf6b87cbac8563b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc1948455c8755e55bf6b87cbac8563b">&#9670;&#160;</a></span>create_models_charts()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">str&#160;</td>
-          <td class="paramname"><em>fcharts</em>&#160;</td>
+          <td class="paramname"><em>fpath</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,18 +166,18 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 
 <p>Функция построения графиков рейтинга моделей </p>
 <dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab </dd></dl>
-<dl class="section version"><dt>Версия</dt><dd>1.1.0 </dd></dl>
+<dl class="section version"><dt>Версия</dt><dd>1.1.1 </dd></dl>
 <dl class="section date"><dt>Дата</dt><dd>24.08.2023 </dd></dl>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">models_rating</td><td>Кортеж с рейтингом моделей из rate_models </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">fcharts</td><td>Путь до каталога с графиками </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fpath</td><td>Путь до каталога с графиками </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>None </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00117">117</a></p>
+<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00115">115</a></p>
 
 </div>
 </div>
@@ -229,7 +229,7 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 <div class="line">    print(f<span class="stringliteral">&quot;Метрика {metric} - лучший результат у {result[0]} = {result[1]}&quot;</span>)</div>
 </div><!-- fragment --> <dl class="section return"><dt>Возвращает</dt><dd>Словарь dict() с тремя лучшими моделями по метрикам mse, mae, r2_score </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00167">167</a></p>
+<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00164">164</a></p>
 
 </div>
 </div>
@@ -290,7 +290,7 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 <div class="line">        os.remove(f<span class="stringliteral">&quot;models/{model_file}&quot;</span>)</div>
 </div><!-- fragment --> <dl class="section return"><dt>Возвращает</dt><dd>Список list() с n-лучшими моделями по определенному признаку </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00241">241</a></p>
+<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00231">231</a></p>
 
 </div>
 </div>
@@ -328,8 +328,8 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 
 <p>Функция-оценщик моделей </p>
 <dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab </dd></dl>
-<dl class="section version"><dt>Версия</dt><dd>1.1.1 </dd></dl>
-<dl class="section date"><dt>Дата</dt><dd>05.08.2023 </dd></dl>
+<dl class="section version"><dt>Версия</dt><dd>1.1.2 </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>24.08.2023 </dd></dl>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>Признаки входных данных </td></tr>
@@ -339,10 +339,10 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
   </dd>
 </dl>
 <p>В приведенной ниже конструкции выполняется сохранение моделей. Это нужно для того, чтобы при итоговой работе в файле <a class="el" href="main_8py.html">main.py</a> моделям не нужно было заново обучаться - достаточно просто загрузить их из файла </p><div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/{name}.pkl&quot;</span>)</div>
-</div><!-- fragment --> <div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/ModelRegression.pkl&quot;</span>)</div>
+</div><!-- fragment --> <div class="fragment"><div class="line">joblib.dump(model, f<span class="stringliteral">&quot;models/KerasRegression.pkl&quot;</span>)</div>
 </div><!-- fragment --> <dl class="section return"><dt>Возвращает</dt><dd>Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score ) </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00047">47</a></p>
+<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00046">46</a></p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 <dl class="section version"><dt>Версия</dt><dd>1.0.0 </dd></dl>
 <dl class="section date"><dt>Дата</dt><dd>05.08.2023 </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00018">18</a></p>
+<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00017">17</a></p>
 
 </div>
 </div>
@@ -385,7 +385,7 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 <dl class="section version"><dt>Версия</dt><dd>1.0.0 </dd></dl>
 <dl class="section date"><dt>Дата</dt><dd>05.08.2023 </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00024">24</a></p>
+<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00023">23</a></p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ $(document).ready(function(){initNavTree('namespacerate.html',''); initResizable
 <dl class="section version"><dt>Версия</dt><dd>1.0.0 </dd></dl>
 <dl class="section date"><dt>Дата</dt><dd>05.08.2023 </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00030">30</a></p>
+<p class="definition">См. определение в файле <a class="el" href="rate_8py_source.html">rate.py</a> строка <a class="el" href="rate_8py_source.html#l00029">29</a></p>
 
 </div>
 </div>
