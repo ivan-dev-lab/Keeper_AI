@@ -7,7 +7,6 @@ from sklearn.ensemble import HistGradientBoostingClassifier, ExtraTreesClassifie
 from sklearn.tree import DecisionTreeClassifier
 import joblib
 import os
-from progress.bar import IncrementalBar
 from preprocess import preprocess
 from create_model import create_model
 
@@ -31,8 +30,8 @@ Y = response_tuple[1]
 
 ## \brief Функция-оценщик моделей
 ## \authors ivan-dev-lab
-## \version 1.1.1
-## \date 05.08.2023
+## \version 1.1.2
+## \date 24.08.2023
 ## \param[in] X Признаки входных данных 
 ## \param[in] Y Целевые переменные входных данных 
 ## \param[in] verbose Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True
@@ -41,7 +40,7 @@ Y = response_tuple[1]
 # joblib.dump(model, f"models/{name}.pkl")
 ## \endcode
 ## \code
-# joblib.dump(model, f"models/ModelRegression.pkl")
+# joblib.dump(model, f"models/KerasRegression.pkl")
 ## \endcode
 ## \return Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score )
 def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
@@ -56,13 +55,10 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
         'GradientBoostingClassifier': GradientBoostingClassifier,
         'DecisionTreeClassifier': DecisionTreeClassifier
     }
-
-    bar = IncrementalBar('Оценка моделей...', max=len(models)+4)
     
     names, mse_scores, mae_scores, r2_scores = [], [], [], []
 
     x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
-    bar.next()
 
     for name, Model in models.items():
 
@@ -83,12 +79,12 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
         if verbose:
             print(f"\n{name}:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}")
         
-        bar.next()
+        
 
     model = create_model(input_shape=X.shape[1])
     model.fit(x_train, y_train, batch_size=64, epochs=30, verbose=0)
-    joblib.dump(model, f"models/ModelRegression.pkl")
-    bar.next()
+    joblib.dump(model, f"models/KerasRegression.pkl")
+    
 
     y_pred = model.predict(x_test)
     
@@ -96,48 +92,49 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
 
-    names.append("ModelRegression")
+    names.append("KerasRegression")
     mse_scores.append(mse)
     mae_scores.append(mae)
     r2_scores.append(r2)
-    bar.next()
+    
 
     if verbose:
-        print(f"\nMyModelRegression:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}")
+        print(f"\KerasRegression:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}")
             
     return (names, mse_scores, mae_scores, r2_scores)
-     
+
+print(rate_models(X,Y,verbose=True))
+
 ## \brief Функция построения графиков рейтинга моделей
 ## \authors ivan-dev-lab
-## \version 1.1.0
+## \version 1.1.1
 ## \date 24.08.2023
 ## \param[in] models_rating Кортеж с рейтингом моделей из rate_models
-## \param[in] fcharts Путь до каталога с графиками 
+## \param[in] fpath Путь до каталога с графиками 
 ## \return None
-def create_models_charts (models_rating: tuple, fcharts: str) -> None:
+def create_models_charts (models_rating: tuple, fpath: str) -> None:
     names, mse_scores, mae_scores, r2_scores = models_rating
-    bar = IncrementalBar('Построение графиков...', max=3)
-
+    
     sns.set_style("darkgrid")
     plt.figure(figsize=(20,10))
 
     sns.barplot(x=r2_scores, y=names)
     plt.xlabel("r2_score")
     plt.ylabel("Названия моделей")
-    plt.savefig(f"{fcharts}/r2_scores")
-    bar.next()
+    plt.savefig(f"{fpath}/r2_scores")
+    
     
     sns.barplot(x=mse_scores, y=names)
     plt.xlabel("Mean-Squared-Error")
     plt.ylabel("Названия моделей")
-    plt.savefig(f"{fcharts}/MSE")
-    bar.next()
+    plt.savefig(f"{fpath}/MSE")
+    
 
     sns.barplot(x=mae_scores, y=names)
     plt.xlabel("Mean-Absolute-Error")
     plt.ylabel("Названия моделей")
-    plt.savefig(f"{fcharts}/MAE")
-    bar.next()
+    plt.savefig(f"{fpath}/MAE")
+    
 
 ## \brief Функция расчета лучшей модели по трем метрикам
 ## \authors ivan-dev-lab-home
@@ -176,13 +173,6 @@ def get_best_models (models_rating: tuple, fpath: str) -> dict:
     best_models["mae"] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]
     best_models["r2_score"] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]
     
-    best_models_df = pd.DataFrame(data=best_models)
-
-    if fpath.find(".csv") != -1:
-        best_models_df.to_csv(fpath)
-    elif fpath.find(".xlsx") != -1:
-        best_models_df.to_excel(fpath)
-
     return best_models
 
 ## \brief Пользовательское исключение
