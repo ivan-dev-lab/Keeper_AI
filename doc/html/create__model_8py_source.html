@@ -99,23 +99,25 @@ $(document).ready(function(){initNavTree('create__model_8py_source.html',''); in
   <div class="headertitle"><div class="title">create_model.py</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="create__model_8py.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacecreate__model.html">    1</a></span><span class="keyword">from</span> keras <span class="keyword">import</span> Sequential, Model, layers</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> keras.optimizers <span class="keyword">import</span> Adam</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacecreate__model.html#ab0b0a2f67b218e74ff299799e3b465ff">   31</a></span><span class="keyword">def </span><a class="code hl_namespace" href="namespacecreate__model.html">create_model</a> (input_shape: int) -&gt; Model:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    model = Sequential()</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    model.add(layers.Dense(units=256, activation=<span class="stringliteral">&quot;relu&quot;</span>, input_shape=(input_shape,)))</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    model.add(layers.Dropout(0.4))</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    model.add(layers.Dense(units=128, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    model.add(layers.Dropout(0.3))</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    model.add(layers.Dense(units=64, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    model.add(layers.Dense(units=32, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    model.add(layers.Dense(units=1, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    model.compile(optimizer=Adam(learning_rate=0.001), loss=<span class="stringliteral">&quot;mse&quot;</span>, metrics=[<span class="stringliteral">&quot;mse&quot;</span>])</div>
+<a href="create__model_8py.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacecreate__model.html">    1</a></span><span class="keyword">import</span> os</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span>os.environ[<span class="stringliteral">&#39;TF_CPP_MIN_LOG_LEVEL&#39;</span>] = <span class="stringliteral">&#39;2&#39;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> keras <span class="keyword">import</span> Sequential, Model, layers</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> keras.optimizers <span class="keyword">import</span> Adam</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacecreate__model.html#ab0b0a2f67b218e74ff299799e3b465ff">   33</a></span><span class="keyword">def </span><a class="code hl_namespace" href="namespacecreate__model.html">create_model</a> (input_shape: int) -&gt; Model:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    model = Sequential()</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    model.add(layers.Dense(units=256, activation=<span class="stringliteral">&quot;relu&quot;</span>, input_shape=(input_shape,)))</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    model.add(layers.Dropout(0.4))</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    model.add(layers.Dense(units=128, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    model.add(layers.Dropout(0.3))</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    model.add(layers.Dense(units=64, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    model.add(layers.Dense(units=32, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    model.add(layers.Dense(units=1, activation=<span class="stringliteral">&quot;relu&quot;</span>))</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">return</span> model</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    model.compile(optimizer=Adam(learning_rate=0.001), loss=<span class="stringliteral">&quot;mse&quot;</span>, metrics=[<span class="stringliteral">&quot;mse&quot;</span>])</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">return</span> model</div>
 <div class="ttc" id="anamespacecreate__model_html"><div class="ttname"><a href="namespacecreate__model.html">create_model</a></div><div class="ttdef"><b>Definition</b> <a href="create__model_8py_source.html#l00001">create_model.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
