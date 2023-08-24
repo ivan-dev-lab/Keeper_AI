@@ -178,83 +178,83 @@ $(document).ready(function(){initNavTree('rate_8py_source.html',''); initResizab
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> (names, mse_scores, mae_scores, r2_scores)</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>     </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">  110</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">create_models_charts</a> (models_rating: tuple) -&gt; <span class="keywordtype">None</span>:</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    print(names, mse_scores, mae_scores, r2_scores, sep=<span class="stringliteral">&quot;\n\n&quot;</span>)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    sns.set_style(<span class="stringliteral">&quot;darkgrid&quot;</span>)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    plt.figure(figsize=(20,10))</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    sns.barplot(x=r2_scores, y=names)</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    plt.xlabel(<span class="stringliteral">&quot;r2_score&quot;</span>)</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/r2_scores&quot;</span>)</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    sns.barplot(x=mse_scores, y=names)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Squared-Error&quot;</span>)</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/MSE&quot;</span>)</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    sns.barplot(x=mae_scores, y=names)</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Absolute-Error&quot;</span>)</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/MAE&quot;</span>)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="namespacerate.html#ab1f9ce4d99525c24e7e40c6eb50a2020">  109</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#ab1f9ce4d99525c24e7e40c6eb50a2020">create_models_charts</a> (models_rating: tuple, fcharts: str) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    print(names, mse_scores, mae_scores, r2_scores, sep=<span class="stringliteral">&quot;\n\n&quot;</span>)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    sns.set_style(<span class="stringliteral">&quot;darkgrid&quot;</span>)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    plt.figure(figsize=(20,10))</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    sns.barplot(x=r2_scores, y=names)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    plt.xlabel(<span class="stringliteral">&quot;r2_score&quot;</span>)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    plt.savefig(f<span class="stringliteral">&quot;{fcharts}/r2_scores&quot;</span>)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    sns.barplot(x=mse_scores, y=names)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Squared-Error&quot;</span>)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    plt.savefig(f<span class="stringliteral">&quot;{fcharts}/MSE&quot;</span>)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    sns.barplot(x=mae_scores, y=names)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Absolute-Error&quot;</span>)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    plt.savefig(f<span class="stringliteral">&quot;{fcharts}/MAE&quot;</span>)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">  157</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">get_best_models</a> (models_rating: tuple) -&gt; dict:</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    best_models = {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="stringliteral">&quot;mse&quot;</span>: list,</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="stringliteral">&quot;mae&quot;</span>: list,</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="stringliteral">&quot;r2_score&quot;</span>: list</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    best_models[<span class="stringliteral">&quot;mse&quot;</span>] = [names[mse_scores.index(min(mse_scores))], min(mse_scores)]</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    best_models[<span class="stringliteral">&quot;mae&quot;</span>] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    best_models[<span class="stringliteral">&quot;r2_score&quot;</span>] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">return</span> best_models</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">  156</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">get_best_models</a> (models_rating: tuple) -&gt; dict:</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    best_models = {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="stringliteral">&quot;mse&quot;</span>: list,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="stringliteral">&quot;mae&quot;</span>: list,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="stringliteral">&quot;r2_score&quot;</span>: list</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    best_models[<span class="stringliteral">&quot;mse&quot;</span>] = [names[mse_scores.index(min(mse_scores))], min(mse_scores)]</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    best_models[<span class="stringliteral">&quot;mae&quot;</span>] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    best_models[<span class="stringliteral">&quot;r2_score&quot;</span>] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordflow">return</span> best_models</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classrate_1_1_incorrect_parameter_error.html">  184</a></span><span class="keyword">class </span><a class="code hl_class" href="classrate_1_1_incorrect_parameter_error.html">IncorrectParameterError</a> (Exception): <span class="keyword">pass</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="classrate_1_1_incorrect_parameter_error.html">  183</a></span><span class="keyword">class </span><a class="code hl_class" href="classrate_1_1_incorrect_parameter_error.html">IncorrectParameterError</a> (Exception): <span class="keyword">pass</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">  224</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">get_models_top</a> (models_rating: tuple, top_by: str, top_models_num: int=3) -&gt; list:</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    models_top = []</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">if</span> top_models_num &lt;= len(names):</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordflow">if</span> top_by <span class="keywordflow">in</span> [<span class="stringliteral">&quot;mse&quot;</span>, <span class="stringliteral">&quot;mae&quot;</span>, <span class="stringliteral">&quot;r2_score&quot;</span>]:</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <span class="keywordflow">for</span> _ <span class="keywordflow">in</span> range(top_models_num):</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                <span class="keywordflow">if</span> top_by == <span class="stringliteral">&quot;mse&quot;</span>:</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                    models_top.append(names[mse_scores.index(min(mse_scores))])</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                    mse_scores.pop(mse_scores.index(min(mse_scores)))</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                <span class="keywordflow">if</span> top_by == <span class="stringliteral">&quot;mae&quot;</span>:</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                    models_top.append(names[mae_scores.index(min(mae_scores))])</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                    mae_scores.pop(mae_scores.index(min(mae_scores)))</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                <span class="keywordflow">if</span> top_by == <span class="stringliteral">&quot;r2_score&quot;</span>:</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                    models_top.append(names[r2_scores.index(max(r2_scores))])</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                    r2_scores.pop(r2_scores.index(max(r2_scores)))</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                names.remove(models_top[len(models_top)-1])</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            <span class="keywordflow">for</span> model_file <span class="keywordflow">in</span> os.listdir(<span class="stringliteral">&quot;models&quot;</span>):</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                <span class="keywordflow">if</span> model_file.split(<span class="stringliteral">&quot;.&quot;</span>)[0] <span class="keywordflow">not</span> <span class="keywordflow">in</span> models_top:</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                    os.remove(f<span class="stringliteral">&quot;models/{model_file}&quot;</span>)</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            <span class="keywordflow">raise</span> <a class="code hl_class" href="classrate_1_1_incorrect_parameter_error.html">IncorrectParameterError</a>(f<span class="stringliteral">&#39;Введенный параметр [top_by={top_by}] является некорректным т.к не принадлежит последовательности [&quot;mse&quot;, &quot;mae&quot;, &quot;r2_score&quot;])&#39;</span>)</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <span class="keywordflow">raise</span> <a class="code hl_class" href="classrate_1_1_incorrect_parameter_error.html">IncorrectParameterError</a>(f<span class="stringliteral">&#39;Введенный параметр [top_models_num={top_models_num}] является некорректным т.к является больше, чем количество нейросетей, участвующих в рейтинге&#39;</span>)</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">return</span> models_top</div>
-<div class="ttc" id="aclassrate_1_1_incorrect_parameter_error_html"><div class="ttname"><a href="classrate_1_1_incorrect_parameter_error.html">rate.IncorrectParameterError</a></div><div class="ttdoc">Пользовательское исключение</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00184">rate.py:184</a></div></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">  223</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">get_models_top</a> (models_rating: tuple, top_by: str, top_models_num: int=3) -&gt; list:</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    models_top = []</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">if</span> top_models_num &lt;= len(names):</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">if</span> top_by <span class="keywordflow">in</span> [<span class="stringliteral">&quot;mse&quot;</span>, <span class="stringliteral">&quot;mae&quot;</span>, <span class="stringliteral">&quot;r2_score&quot;</span>]:</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            <span class="keywordflow">for</span> _ <span class="keywordflow">in</span> range(top_models_num):</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                <span class="keywordflow">if</span> top_by == <span class="stringliteral">&quot;mse&quot;</span>:</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                    models_top.append(names[mse_scores.index(min(mse_scores))])</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                    mse_scores.pop(mse_scores.index(min(mse_scores)))</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                <span class="keywordflow">if</span> top_by == <span class="stringliteral">&quot;mae&quot;</span>:</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                    models_top.append(names[mae_scores.index(min(mae_scores))])</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                    mae_scores.pop(mae_scores.index(min(mae_scores)))</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                <span class="keywordflow">if</span> top_by == <span class="stringliteral">&quot;r2_score&quot;</span>:</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                    models_top.append(names[r2_scores.index(max(r2_scores))])</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                    r2_scores.pop(r2_scores.index(max(r2_scores)))</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                names.remove(models_top[len(models_top)-1])</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            <span class="keywordflow">for</span> model_file <span class="keywordflow">in</span> os.listdir(<span class="stringliteral">&quot;models&quot;</span>):</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                <span class="keywordflow">if</span> model_file.split(<span class="stringliteral">&quot;.&quot;</span>)[0] <span class="keywordflow">not</span> <span class="keywordflow">in</span> models_top:</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                    os.remove(f<span class="stringliteral">&quot;models/{model_file}&quot;</span>)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            <span class="keywordflow">raise</span> <a class="code hl_class" href="classrate_1_1_incorrect_parameter_error.html">IncorrectParameterError</a>(f<span class="stringliteral">&#39;Введенный параметр [top_by={top_by}] является некорректным т.к не принадлежит последовательности [&quot;mse&quot;, &quot;mae&quot;, &quot;r2_score&quot;])&#39;</span>)</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordflow">raise</span> <a class="code hl_class" href="classrate_1_1_incorrect_parameter_error.html">IncorrectParameterError</a>(f<span class="stringliteral">&#39;Введенный параметр [top_models_num={top_models_num}] является некорректным т.к является больше, чем количество нейросетей, участвующих в рейтинге&#39;</span>)</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordflow">return</span> models_top</div>
+<div class="ttc" id="aclassrate_1_1_incorrect_parameter_error_html"><div class="ttname"><a href="classrate_1_1_incorrect_parameter_error.html">rate.IncorrectParameterError</a></div><div class="ttdoc">Пользовательское исключение</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00183">rate.py:183</a></div></div>
 <div class="ttc" id="anamespacecreate__model_html"><div class="ttname"><a href="namespacecreate__model.html">create_model</a></div><div class="ttdef"><b>Definition</b> <a href="create__model_8py_source.html#l00001">create_model.py:1</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html"><div class="ttname"><a href="namespacepreprocess.html">preprocess</a></div><div class="ttdef"><b>Definition</b> <a href="preprocess_8py_source.html#l00001">preprocess.py:1</a></div></div>
-<div class="ttc" id="anamespacerate_html_a3bdb43f1a48f13278be89f28a3643397"><div class="ttname"><a href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">rate.create_models_charts</a></div><div class="ttdeci">None create_models_charts(tuple models_rating)</div><div class="ttdoc">Функция построения графиков рейтинга моделей</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00110">rate.py:110</a></div></div>
-<div class="ttc" id="anamespacerate_html_a696f38ca9655465899cc4b2c6fa3634b"><div class="ttname"><a href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">rate.get_models_top</a></div><div class="ttdeci">list get_models_top(tuple models_rating, str top_by, int top_models_num=3)</div><div class="ttdoc">Функция возврата n-лучших моделей по метрике</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00224">rate.py:224</a></div></div>
+<div class="ttc" id="anamespacerate_html_a696f38ca9655465899cc4b2c6fa3634b"><div class="ttname"><a href="namespacerate.html#a696f38ca9655465899cc4b2c6fa3634b">rate.get_models_top</a></div><div class="ttdeci">list get_models_top(tuple models_rating, str top_by, int top_models_num=3)</div><div class="ttdoc">Функция возврата n-лучших моделей по метрике</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00223">rate.py:223</a></div></div>
 <div class="ttc" id="anamespacerate_html_a95aa05a2caf14b504ec45d984735c350"><div class="ttname"><a href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">rate.rate_models</a></div><div class="ttdeci">tuple rate_models(pd.DataFrame X, pd.DataFrame Y, verbose=True)</div><div class="ttdoc">Функция-оценщик моделей</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00046">rate.py:46</a></div></div>
-<div class="ttc" id="anamespacerate_html_acc01d01b208b1af5fd46ca4986cb71ec"><div class="ttname"><a href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">rate.get_best_models</a></div><div class="ttdeci">dict get_best_models(tuple models_rating)</div><div class="ttdoc">Функция расчета лучшей модели по трем метрикам</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00157">rate.py:157</a></div></div>
+<div class="ttc" id="anamespacerate_html_ab1f9ce4d99525c24e7e40c6eb50a2020"><div class="ttname"><a href="namespacerate.html#ab1f9ce4d99525c24e7e40c6eb50a2020">rate.create_models_charts</a></div><div class="ttdeci">None create_models_charts(tuple models_rating, str fcharts)</div><div class="ttdoc">Функция построения графиков рейтинга моделей</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00109">rate.py:109</a></div></div>
+<div class="ttc" id="anamespacerate_html_acc01d01b208b1af5fd46ca4986cb71ec"><div class="ttname"><a href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">rate.get_best_models</a></div><div class="ttdeci">dict get_best_models(tuple models_rating)</div><div class="ttdoc">Функция расчета лучшей модели по трем метрикам</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00156">rate.py:156</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

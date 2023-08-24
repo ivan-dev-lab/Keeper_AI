@@ -171,15 +171,22 @@ $(document).ready(function(){initNavTree('main_8py_source.html',''); initResizab
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    clients_data = <a class="code hl_namespace" href="namespacepreprocess.html">preprocess</a>(request[<span class="stringliteral">&quot;clients&quot;</span>], data_type=<span class="stringliteral">&quot;test&quot;</span>)</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">if</span> request[<span class="stringliteral">&#39;train&#39;</span>]:</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        train_data = <a class="code hl_namespace" href="namespacepreprocess.html">preprocess</a>(<span class="stringliteral">&quot;data/train.csv&quot;</span>)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="comment"># продумать обучение моделей и их сохранение</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    X,Y = <span class="keywordtype">None</span>, <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">if</span> request[<span class="stringliteral">&#39;train&#39;</span>]:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        X,Y = <a class="code hl_namespace" href="namespacepreprocess.html">preprocess</a>(<span class="stringliteral">&quot;data/train.csv&quot;</span>, data_type=<span class="stringliteral">&quot;train&quot;</span>)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="comment"># продумать обучение моделей и их сохранение</span></div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_namespace" href="namespacemain.html">main</a>()</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">if</span> request[<span class="stringliteral">&#39;rate&#39;</span>]:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keyword">from</span> rate <span class="keyword">import</span> rate_models, create_models_charts, get_best_models, get_models_top</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        models_rating = rate_models(X,Y, verbose=<span class="keyword">False</span>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        os.makedirs(request[<span class="stringliteral">&#39;charts&#39;</span>])</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        create_models_charts</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_namespace" href="namespacemain.html">main</a>()</div>
 <div class="ttc" id="aclassmain_1_1_incorrect_number_of_arguments_error_html"><div class="ttname"><a href="classmain_1_1_incorrect_number_of_arguments_error.html">main.IncorrectNumberOfArgumentsError</a></div><div class="ttdoc">Пользовательское исключение</div><div class="ttdef"><b>Definition</b> <a href="main_8py_source.html#l00015">main.py:15</a></div></div>
 <div class="ttc" id="anamespacemain_html"><div class="ttname"><a href="namespacemain.html">main</a></div><div class="ttdef"><b>Definition</b> <a href="main_8py_source.html#l00001">main.py:1</a></div></div>
 <div class="ttc" id="anamespacemain_html_a3140e9a5b6a71ffbf498198cfc471b88"><div class="ttname"><a href="namespacemain.html#a3140e9a5b6a71ffbf498198cfc471b88">main.main</a></div><div class="ttdeci">main()</div><div class="ttdoc">Главная функция в которой собраны все остальные функци проекта</div><div class="ttdef"><b>Definition</b> <a href="main_8py_source.html#l00081">main.py:81</a></div></div>
