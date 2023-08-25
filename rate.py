@@ -10,23 +10,17 @@ import os
 from preprocess import preprocess
 from create_model import create_model
 
-## \brief Кортеж с признаками и целевым переменными
+## \brief DataFrame с тренировочными данными
 ## \authors ivan-dev-lab
 ## \version 1.0.0
-## \date 05.08.2023
-response_tuple = preprocess("data/train.csv", "train")
+## \date 25.08.2023
+data = pd.read_csv("data/train.csv")
 
-## \brief Признаки данных
+## \brief Признаки и целевые переменные
 ## \authors ivan-dev-lab
 ## \version 1.0.0
-## \date 05.08.2023
-X = response_tuple[0]
-
-## \brief Целевые переменные данных
-## \authors ivan-dev-lab
-## \version 1.0.0
-## \date 05.08.2023
-Y = response_tuple[1]
+## \date 25.08.2023
+X,Y = preprocess(data_df=data, data_type="train")
 
 ## \brief Функция-оценщик моделей
 ## \authors ivan-dev-lab
@@ -102,8 +96,6 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
         print(f"\KerasRegression:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}")
             
     return (names, mse_scores, mae_scores, r2_scores)
-
-print(rate_models(X,Y,verbose=True))
 
 ## \brief Функция построения графиков рейтинга моделей
 ## \authors ivan-dev-lab
