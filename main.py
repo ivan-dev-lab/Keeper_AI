@@ -26,11 +26,9 @@ class IncorrectNumberOfArgumentsError (Exception): pass
 def make_communication () -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Keeper_AI - Cистема классификации клиентов.")
 
-    data_arg_group = parser.add_argument_group(title="Сохранение и загрузка данных", description="Если не указывать флаг --pred, то данные с предсказаниями будут загружаться в C:/Users/User/Keeper_AI-work/clients.csv")
-    # В КОНЦЕ ОБЯЗАТЕЛЬНО СДЕЛАТЬ required=True
+    data_arg_group = parser.add_argument_group(title="Сохранение и загрузка данных", description="Если не указывать флаг --pred, то данные с предсказаниями будут загружаться в C:/Users/User/Keeper_AI-work/clients_preprocessed.csv")
     data_arg_group.add_argument("--clients", type=str, help="Путь до исходных данных в формате [.CSV|.XLSX]", required=True) 
-    data_arg_group.add_argument("--pred", type=str, help="Путь до предполагаемого файла в формате [.CSV|.XLSX] с конечными данными", default="C:/Users/User/Keeper_AI-work/clients.csv")
-    # В КОНЦЕ ОБЯЗАТЕЛЬНО СДЕЛАТЬ required=True
+    data_arg_group.add_argument("--pred", type=str, help="Путь до предполагаемого файла в формате [.CSV|.XLSX] с конечными данными", default="C:/Users/User/Keeper_AI-work/clients_preprocessed.csv")
 
     train_arg_group = parser.add_argument_group(title="Тренировка моделей", description="При тренировки модели для предсказаний и моделей для оценки, будут использоваться данные по-умолчанию из каталога Keeper_AI/data/train.csv")
     train_arg_group.add_argument("--train", action="store_true", help="Флаг определяет необходимость обучения моделей")
@@ -74,15 +72,9 @@ def create_request () -> dict:
 ## \authors ivan-dev-lab
 ## \version 2.1.0
 ## \date 24.08.2023
-## \bug ValueError: The feature names should match those that were passed during fit.<br>Feature names unseen at fit time:<br>- Unnamed: 0 <br> при clients_data["Исход"] = model.predict(clients_data_prep)
 ## \returns None
 def main ():
-    # request = create_request ()
-    request = {
-        'clients': 'C:/Users/User/Keeper_AI-work/clients.csv',
-        'pred': 'C:/Users/User/Keeper_AI-work/clients.csv',
-        'train': True
-    } 
+    request = create_request ()
 
     DEST_DIR = request["pred"].split("/")
     DEST_DIR.pop()
@@ -95,24 +87,16 @@ def main ():
 
     if request['clients'].find(".csv") != -1:
         clients_data = pd.read_csv(request["clients"], index_col=[0])
-        clients_data = clients_data[["CustomerID"]]
-    
-        clients_data_prep = preprocess(request['clients'], data_type="test")
+        clients_data_prep = preprocess(clients_data.copy(), data_type="test")
+
     elif request['clients'].find(".xlsx") != -1:
-        clients_data = pd.read_excel(request['clients'])
-        clients_data.to_csv(f'{DEST_DIR}/clients.csv')
-
-        clients_data = pd.read_csv(f'{DEST_DIR}/clients.csv', index_col=[0])
-        clients_data = clients_data[["CustomerID"]]
+        clients_data = pd.read_excel(request["clients"], index_col=[0])
+        clients_data_prep = preprocess(clients_data.copy(), data_type="test")
     
-        clients_data_prep = preprocess(f'{DEST_DIR}/clients.csv', data_type="test")
-
-        os.remove(f'{DEST_DIR}/clients.csv')
-
-    
-    X,Y = preprocess("data/train.csv", data_type="train")
-    X = X.iloc[0:25000]
-    Y = Y.iloc[0:25000]
+    clients_data = clients_data[["CustomerID"]]
+ 
+    train_data = pd.read_csv("data/train.csv")
+    X,Y = preprocess(train_data, data_type="train")
     
     model = HistGradientBoostingClassifier()
 
@@ -129,8 +113,10 @@ def main ():
             model.fit(X, Y)
             joblib.dump(model, f"{DEST_DIR}/model/HistGradientBoostingClassifier.pkl")
 
-    clients_data["Исход"] = model.predict(clients_data_prep)
+    churn_df = pd.DataFrame(data=model.predict(clients_data_prep), columns=["Исход"])
+    churn_df.replace({1: "Ушел", 0: "Остался"}, inplace=True)
 
+    clients_data["Исход"] = churn_df
 
     if request['pred'].find(".csv") != -1:
         clients_data.to_csv(request['pred'])
