@@ -48,23 +48,11 @@ def create_request () -> dict:
 
     for arg in args._get_kwargs():
         if arg[0] == "clients" and os.path.exists(arg[1]):
-            request["clients"] = arg[1]
+            request["clients"] = arg[1].replace("\\", '/')
         elif arg[0] == "train":
             request["train"] = arg[1]
         if arg[0] == "pred" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
-            request["pred"] = arg[1]
-        elif arg[0] == "rate":
-            request["rate"] = arg[1]
-        elif arg[0] == "charts" and re.match(r"\S*/*$", arg[1]) != None:
-            request["charts"] = arg[1]
-        elif arg[0] == "save_models" and re.match(r"\S*/*$", arg[1]) != None:
-            request["save_models"] = arg[1]
-        elif arg[0] == "best" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
-            request["best"]  = arg[1]
-        elif arg[0] == "top" and re.match(r"\S*/*\.(csv|xlsx)", arg[1]) != None:
-            request["top"] = arg[1]
-        elif arg[0] == "num_top":
-            request["num_top"] = arg[1]
+            request["pred"] = arg[1].replace("\\", '/')
 
     return request
 
