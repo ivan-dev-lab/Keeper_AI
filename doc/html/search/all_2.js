@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['incorrectnumberofargumentserror_0',['IncorrectNumberOfArgumentsError',['../classmain_1_1_incorrect_number_of_arguments_error.html',1,'main']]],
-  ['incorrectparametererror_1',['IncorrectParameterError',['../classrate_1_1_incorrect_parameter_error.html',1,'rate']]]
+  ['get_5fbest_5fmodels_0',['get_best_models',['../namespacerate.html#a0359e1d8ef2fa25a47ff17122c11ead4',1,'rate']]],
+  ['get_5fmodels_5ftop_1',['get_models_top',['../namespacerate.html#a5271cfa99d7b7c3ed75e3371e784b68d',1,'rate']]]
 ];
