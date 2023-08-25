@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Keeper_AI", "index.html", [
-    [ "<strong>Keeper_AI - Система классификации клиентов</strong>", "md__r_e_a_d_m_e.html", null ],
+    [ "Keeper_AI", "md__r_e_a_d_m_e.html", null ],
     [ "Пространства имен", "namespaces.html", [
       [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
       [ "Члены пространств имен", "namespacemembers.html", [

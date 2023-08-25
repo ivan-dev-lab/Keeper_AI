@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['create_5fmodel_0',['create_model',['../namespacecreate__model.html',1,'create_model'],['../namespacecreate__model.html#ab0b0a2f67b218e74ff299799e3b465ff',1,'create_model.create_model()']]],
-  ['create_5fmodel_2epy_1',['create_model.py',['../create__model_8py.html',1,'']]],
-  ['create_5fmodels_5fcharts_2',['create_models_charts',['../namespacerate.html#adc1948455c8755e55bf6b87cbac8563b',1,'rate']]],
-  ['create_5frequest_3',['create_request',['../namespacemain.html#a37199c4ba52ad4ba646dc10e1d31cdaf',1,'main']]]
+  ['data_0',['data',['../namespacerate.html#a517d4c404a97896c65ba49ec9e08ba5e',1,'rate']]],
+  ['data_5fdf_1',['data_df',['../namespacerate.html#aa0b9557b515f40cdf47596afa2cd57e4',1,'rate']]],
+  ['data_5ftype_2',['data_type',['../namespacerate.html#a674ef3853b252c0567a6d693d6481778',1,'rate']]]
 ];

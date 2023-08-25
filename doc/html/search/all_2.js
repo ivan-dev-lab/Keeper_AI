@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['data_0',['data',['../namespacerate.html#a517d4c404a97896c65ba49ec9e08ba5e',1,'rate']]],
-  ['data_5fdf_1',['data_df',['../namespacerate.html#aa0b9557b515f40cdf47596afa2cd57e4',1,'rate']]],
-  ['data_5ftype_2',['data_type',['../namespacerate.html#a674ef3853b252c0567a6d693d6481778',1,'rate']]]
+  ['get_5fbest_5fmodels_0',['get_best_models',['../namespacerate.html#a0359e1d8ef2fa25a47ff17122c11ead4',1,'rate']]],
+  ['get_5fmodels_5ftop_1',['get_models_top',['../namespacerate.html#a5271cfa99d7b7c3ed75e3371e784b68d',1,'rate']]]
 ];
