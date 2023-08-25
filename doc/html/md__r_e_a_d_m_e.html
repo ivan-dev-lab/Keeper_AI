@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Keeper_AI: Класс main.IncorrectNumberOfArgumentsError</title>
+<title>Keeper_AI: &lt;strong&gt;Keeper_AI - Система классификации клиентов&lt;/strong&gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classmain_1_1_incorrect_number_of_arguments_error.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -95,37 +95,27 @@ $(document).ready(function(){initNavTree('classmain_1_1_incorrect_number_of_argu
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Класс main.IncorrectNumberOfArgumentsError</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">&lt;strong&gt;Keeper_AI - Система классификации клиентов&lt;/strong&gt;</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Пользовательское исключение  
- <a href="classmain_1_1_incorrect_number_of_arguments_error.html#details">Подробнее...</a></p>
-<div class="dynheader">
-Граф наследования:main.IncorrectNumberOfArgumentsError:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classmain_1_1_incorrect_number_of_arguments_error.png" alt=""/>
- </div></div>
-<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><p>Пользовательское исключение </p>
-<dl class="section author"><dt>Авторы</dt><dd>ivan-dev-lab </dd></dl>
-<dl class="section version"><dt>Версия</dt><dd>1.0.0 </dd></dl>
-<dl class="section date"><dt>Дата</dt><dd>22.08.2023</dd></dl>
-<p>Исключение создано для создания ошибки при передаче НЕ двух кортежей в функцию check_both_args. Ниже примеры кода с использованием исключения </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> len(types) != 2:</div>
-<div class="line">    <span class="keywordflow">raise</span> IncorrectNumberOfArgumentsError(f<span class="stringliteral">&quot;Количество переданных объектов [{len(types)}] не соотвествует ожидаемой длине [2]&quot;</span>)</div>
-</div><!-- fragment --> 
-<p class="definition">См. определение в файле <a class="el" href="main_8py_source.html">main.py</a> строка <a class="el" href="main_8py_source.html#l00018">18</a></p>
-</div><hr/>Объявления и описания членов класса находятся в файле:<ul>
-<li><a class="el" href="main_8py_source.html">main.py</a></li>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p><hr  />
+<p> Keeper_AI - Система классификации клиента на предмет того, как скоро он перестанет пользоваться услугами бизнеса</p>
+<p><b>Пример работы с системой:</b></p><ul>
+<li><code>Win</code>+<code>R</code> -&gt; <code>cmd</code></li>
+<li><code>cd Keeper_AI</code> -&gt; <code>python <a class="el" href="main_8py.html">main.py</a> --clients YOUR_PATH --pred YOUR_PATH --train</code></li>
 </ul>
-</div><!-- contents -->
+<p><b>Обозначения</b>:</p><ul>
+<li>флаг <code>--clients</code> обзначает путь, до данных с клиентами</li>
+<li>флаг <code>--pred</code> обзначает путь, до предполагаемого файла с предсказаниями модели о клиентах. По умолчанию: <code>C:/Users/User/Keeper_AI-work/clients_preprocessed.csv</code></li>
+<li>флаг <code>--train</code> - указывает системе на то, нужно ли предварительно обучать модель перед работой. Важное уточнение </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacemain.html">main</a></li><li class="navelem"><a class="el" href="classmain_1_1_incorrect_number_of_arguments_error.html">IncorrectNumberOfArgumentsError</a></li>
     <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

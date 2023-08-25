@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['create_5fmodel_0',['create_model',['../namespacecreate__model.html',1,'create_model'],['../namespacecreate__model.html#ab0b0a2f67b218e74ff299799e3b465ff',1,'create_model.create_model()']]],
-  ['create_5fmodel_2epy_1',['create_model.py',['../create__model_8py.html',1,'']]],
-  ['create_5fmodels_5fcharts_2',['create_models_charts',['../namespacerate.html#adc1948455c8755e55bf6b87cbac8563b',1,'rate']]],
-  ['create_5frequest_3',['create_request',['../namespacemain.html#a37199c4ba52ad4ba646dc10e1d31cdaf',1,'main']]]
+  ['_3cstrong_3ekeeper_5fai_20_2d_20система_20классификации_20клиентов_3c_2fstrong_3e_0',['&lt;strong&gt;Keeper_AI - Система классификации клиентов&lt;/strong&gt;',['../md__r_e_a_d_m_e.html',1,'']]]
 ];
