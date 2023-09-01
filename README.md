@@ -17,7 +17,7 @@ Keeper_AI - Система классификации клиента на пре
   
 <img src="doc/help_screen.png"></img>
 
-**Более подробная информация по работе с системой:** `doc/html/index.html`
+**Более подробная информация по работе с системой:** <a href="doc/html/index.html">doc/html/index.html</a>
 
 <h2>Автор проекта</h2>
 <p>Улановский Иван:</p>
