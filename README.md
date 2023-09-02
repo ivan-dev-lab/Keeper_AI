@@ -17,11 +17,11 @@ Keeper_AI - Система классификации клиента на пре
   
 <img src="doc/help_screen.png"></img>
 
-<a href="doc/html/">**Более подробная информация по работе с системой** </a>
+<b><code><a href="doc/html/">**Более подробная информация по работе с системой** </a></code></b>
 
 <h2>Автор проекта</h2>
 <p>Улановский Иван:</p>
 <ol>
-<li><a href="https://github.com/ivan-dev-lab">GitHub</a></li>
-<li><a href="https://t.me/ivan_ne_chik06">Telegram</a></li>
+<li><b><code><a href="https://github.com/ivan-dev-lab">GitHub</b></a></code></b></li>
+<li><b><code><a href="https://t.me/ivan_ne_chik06">Telegram</b></a></code></b></li>
 </ol>
